@@ -1,0 +1,31 @@
+.nav {
+    padding: 0px 30px;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav .logo{
+    font-size: 1.3rem;
+    color: #32c36c;
+    border-radius: 2px;
+    display: flex;
+}
+.nav .logo h1{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.nav .logo svg{
+    font-size: 3rem; 
+    color: #32c36c59;
+}
+
+.nav a h3{
+    font-weight: 500;
+    transition: 0.3s ease-in-out ;
+}
+
+.nav a h3:hover{
+    color: #32c36c;
+}

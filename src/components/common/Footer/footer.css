@@ -1,0 +1,81 @@
+footer {
+    background-image: url(../../../assets/images/footer-map.png);
+    background-color: #0a0a0f;
+    color: #fff;
+    padding: 50px 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .col {
+    flex: 1;
+    padding: 0 20px;
+}
+
+footer .col h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+footer .col p {
+    margin: 5px 0;
+}
+
+footer .col a::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    background: #32c36c;
+    transition: all 0.4s ease;
+}
+
+footer .col a {
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    position: relative;
+    padding-left: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+footer .col a:hover {
+    text-decoration: underline;
+    color: #32c36c;
+    padding-left: 10px;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .icon {
+    display: flex;
+}
+
+footer .icon svg {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+footer .icon svg:hover {
+    color: #ddd;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    footer .col {
+        flex: 100%;
+        margin-bottom: 30px;
+    }
+}

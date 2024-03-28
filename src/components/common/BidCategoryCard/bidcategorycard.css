@@ -1,0 +1,61 @@
+.bidcategory-card {
+    max-width: 200px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    padding: 22px 40px;
+    color: #1f2230;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: 0.4s ease;
+    position: relative;
+    z-index: 1;
+    transition: all 0.35s ease-in-out;
+    overflow: hidden;
+}
+
+.bidcategory-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #32c36c;
+    transform: scaleX(0);
+    border-radius: 5px;
+    z-index: -1;
+    transform-origin: right;
+    transition: transform 0.35s ease-in, z-index 0.1s ease-in 0.35s; 
+}
+
+.bidcategory-card:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    z-index: 0;
+}
+
+.bidcategory-card svg {
+    width: 100%;
+    font-size: 3.1rem;
+    margin-bottom: 10px;
+    color: inherit;
+}
+
+.bidcategory-card h2 {
+    font-family: "Saira", sans-serif;
+    font-weight: 500;
+    color: inherit;
+}
+
+.bidcategory-card svg,
+.bidcategory-card h3 {
+    position: relative;
+    z-index: 1;
+    color: inherit;
+    transition: 0.6s ease-in-out;
+}
+
+.bidcategory-card:hover svg, .bidcategory-card:hover h3{
+    color: white;
+}

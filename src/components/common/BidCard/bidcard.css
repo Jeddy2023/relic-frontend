@@ -1,0 +1,64 @@
+.bidcard{
+    max-width: 400px;
+    min-width: 370px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+}
+.bidcard .top{
+    position: relative;
+    height: 17rem;
+    overflow: hidden;
+}
+.bidcard .top img{
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    object-fit: cover;
+}
+.bidcard .top:hover img{
+    transform: scale(1.1);
+}
+.bidcard .top .auction-timer{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 13px 17px;
+    border-radius: 3px;
+    z-index: 1;
+}
+.bidcard .top .auction-timer .main-auction {
+    display: flex;
+    gap: 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.bidcard .top .auction-timer .main-auction span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bidcard .top .auction-timer .main-auction span p{
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+.bidcard .bottom{
+    padding: 25px 22px;
+}
+.bidcard .bottom h4{
+    color: rgba(0, 0, 0, 0.731);
+    font-family: "Livvic", sans-serif;
+    font-weight: 500;
+}
+.bidcard .bottom h4 span{
+    color: black;
+    font-weight: 700;
+}
+.bidcard .bottom button{
+    background-color: #32c36c;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
