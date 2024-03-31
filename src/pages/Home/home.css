@@ -1,6 +1,95 @@
-.container{
+.hero_section {
+    width: 100vw;
+    height: 550px;
     display: flex;
-    justify-content: space-between;
-    margin: 50px 0px;
-    padding: 20px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero_section .hero_section-left {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero_section .hero_section-left,.hero_section .hero_section-right{
+    width: 50%;
+}
+
+.hero_section .hero_section-left button {
+    font-weight: 700;
+    font-size: 1.03rem;
+}
+
+.hero_section .hero_section-h1-wrap {
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.hero_section .hero_section-h1-wrap h1{
+    font-family: Catamaran, sans-serif !important;
+
+    color: #323232;
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.hero_section .hero_section-p-wrap {
+    margin-bottom: 30px;
+    line-height: 1.1;
+    max-width: 550px;
+    font-family: Catamaran, sans-serif !important;
+}
+
+.hero_section .hero_section-p-wrap span{
+    color: #32c36c;
+}
+
+.hero_section .hero_section-right{
+    display: flex;
+    gap: 20px;
+}
+
+.hero_section .hero_section-right .img-holder{
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.category_section{
+    padding: 10px 60px; 
+}
+
+.auction_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 55px 0;
+}
+
+.auction_section .hero_section-p-wrap{
+    max-width: 650px;
+    text-align: center;
+    color: #696969;
+    margin-bottom: 30px;
+}
+
+.auction_section h1{
+    font-family: "Saira", sans-serif;
+    color: #1f2230;
+    font-size: 2.5rem;
+}
+
+.auction_section .auctions{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.review_section{
+    display: flex;
 }

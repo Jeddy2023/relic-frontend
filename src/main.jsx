@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/dates/styles.css'
+import '@mantine/carousel/styles.css'
 import ErrorPage from './components/ui/ErrorPage/ErrorPage';
 import AdminHome from './AdminDashboard/pages/AdminHome/AdminHome';
 import LayoutAdmin from './AdminDashboard/components/ui/LayoutAdmin';

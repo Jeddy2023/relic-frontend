@@ -5,13 +5,15 @@ import { CiHeart } from "react-icons/ci";
 import { SiNewrelic } from "react-icons/si";
 import { Link } from 'react-router-dom'
 import "./header.css"
+import Logo from '../../../assets/images/2-removebg-preview.png'
 
 function Header() {
   return (
     <nav className='nav'>
       <Link href="#" className='logo'>
-        <h1>Relic</h1>
-        <SiNewrelic />
+        <img src={Logo} />
+        {/* <h1>Relic</h1>
+        <SiNewrelic /> */}
       </Link>
 
       <Flex align={"center"} gap={30}>
