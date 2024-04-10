@@ -11,6 +11,10 @@ import { IconPhoto, IconDownload, IconArrowRight } from '@tabler/icons-react';
 import { MdVerifiedUser } from "react-icons/md";
 import Category from '../../components/common/Category/Category';
 import ReviewCard from '../../components/common/ReviewCard/ReviewCard';
+import ClientReviewCard from '../../components/common/ClientReviewCard/ClientReviewCard';
+import clientcircle from '../../assets/images/clent-circle1.png'
+import clientcircle2 from '../../assets/images/clent-circle2.png'
+import rightLayout from '../../assets/images/client-right.png'
 
 function Home() {
   return (
@@ -54,25 +58,43 @@ function Home() {
       </section>
       <section className="container auction_section">
         <h1>Live Auction</h1>
-        <div className="hero_section-p-wrap">
+        <div className="auction_section-p-wrap">
           <p>
             Explore on the world's best & largest Bidding marketplace with our beautiful Bidding products. We want to be a part of your smile, success and future growth.
           </p>
         </div>
 
         <div className="auctions">
-          {[...Array(9)].map((_, index) => (
+          {[...Array(6)].map((_, index) => (
             <BidCard key={index} />
           ))}
         </div>
 
         <Link to='/'><Button mt={20} color='#32c36c' fw={900} size={"md"}>View All</Button></Link>
       </section>
+      <section className="container client-review_section">
+        <h1>What Client Say</h1>
+        <div className="client-review_section-p-wrap">
+          <p>
+            Explore on the world's best & largest Bidding marketplace with our beautiful Bidding products. We want to be a part of your smile, success and future growth.
+          </p>
+        </div>
+
+        <div className="clientreviews">
+          <ClientReviewCard />
+          <ClientReviewCard />
+          <ClientReviewCard />
+        </div>
+
+        <img src={rightLayout} className='client-right-vector' />
+        <img src={clientcircle} className='client-circle1' />
+        <img src={clientcircle2} className='client-circle2' />
+      </section>
       <section className='container review_section'>
-        <ReviewCard/>
-        <ReviewCard/>
-        <ReviewCard/>
-        <ReviewCard/>
+        <ReviewCard />
+        <ReviewCard />
+        <ReviewCard />
+        <ReviewCard />
       </section>
     </main>
   )

@@ -14,21 +14,24 @@
     justify-content: center;
 }
 
-.hero_section .hero_section-left,.hero_section .hero_section-right{
+.hero_section .hero_section-left,
+.hero_section .hero_section-right {
     width: 50%;
 }
 
 .hero_section .hero_section-left button {
     font-weight: 700;
     font-size: 1.03rem;
+    z-index: 5;
 }
 
 .hero_section .hero_section-h1-wrap {
     margin-bottom: 15px;
     line-height: 1;
+    z-index: 5;
 }
 
-.hero_section .hero_section-h1-wrap h1{
+.hero_section .hero_section-h1-wrap h1 {
     font-family: Catamaran, sans-serif !important;
 
     color: #323232;
@@ -42,27 +45,29 @@
     line-height: 1.1;
     max-width: 550px;
     font-family: Catamaran, sans-serif !important;
+    z-index: 5;
 }
 
-.hero_section .hero_section-p-wrap span{
+.hero_section .hero_section-p-wrap span {
     color: #32c36c;
 }
 
-.hero_section .hero_section-right{
+.hero_section .hero_section-right {
     display: flex;
     gap: 20px;
 }
 
-.hero_section .hero_section-right .img-holder{
+.hero_section .hero_section-right .img-holder {
     border-radius: 50%;
     overflow: hidden;
+    z-index: 5;
 }
 
-.category_section{
-    padding: 10px 60px; 
+.category_section {
+    padding: 10px 60px;
 }
 
-.auction_section{
+.auction_section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,27 +75,100 @@
     margin: 55px 0;
 }
 
-.auction_section .hero_section-p-wrap{
+.auction_section .auction_section-p-wrap {
     max-width: 650px;
     text-align: center;
     color: #696969;
     margin-bottom: 30px;
 }
 
-.auction_section h1{
+.auction_section h1 {
     font-family: "Saira", sans-serif;
     color: #1f2230;
     font-size: 2.5rem;
 }
 
-.auction_section .auctions{
+.auction_section .auctions {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 20px;
 }
 
-.review_section{
+.review_section {
     display: flex;
     justify-content: space-between;
+}
+
+.client-review_section {
+    background-image: url(../../assets/images/review-bg.png);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.client-review_section .client-review_section-p-wrap {
+    max-width: 650px;
+    text-align: center;
+    color: #696969;
+    margin-bottom: 30px;
+}
+
+.client-review_section h1 {
+    font-family: "Saira", sans-serif;
+    color: #1f2230;
+    font-size: 2.5rem;
+}
+
+.client-review_section .clientreviews {
+    display: flex;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.client-review_section .client-right-vector {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.client-review_section .client-circle1 {
+    position: absolute;
+    right: 14%;
+    bottom: -20px;
+    animation: fluid 5s linear infinite alternate;
+}
+
+.client-review_section .client-circle2 {
+    position: absolute;
+    left: 8%;
+    bottom: -30px;
+    animation: fluid 5s linear infinite alternate;
+    animation-delay: 2s;
+}
+
+@keyframes fluid {
+    0% {
+        transform: translateY(0%);
+    }
+
+    25% {
+        transform: translateY(-25%);
+    }
+
+    50% {
+        transform: translateY(-50%);
+    }
+
+    75% {
+        transform: translateY(-75%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
 }

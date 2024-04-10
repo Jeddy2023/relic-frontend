@@ -1,0 +1,82 @@
+.clientreview-card {
+    background: #fff;
+    box-shadow: 5px 2px 15px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    padding: 25px;
+    transition: 0.42s ease;
+    transition-delay: 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 5;
+}
+
+.clientreview-card::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    background: #32c36c;
+    left: 0;
+    bottom: 0;
+    transform: scale(0 , 1);
+    transform-origin: 0% 100%;
+    transition: transform 0.7s ease;
+}
+.clientreview-card:hover::after{
+    transform: scale(1 ,1);
+}
+
+.quote-icon {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+.quote-icon svg{
+    font-size: 1.8rem;
+}
+
+.testi-img {
+    width: 60px;
+    height: 60px;
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+
+.testi-img img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.clientreview-card p {
+    color: #1f2230;
+    font-size: 18px;
+    font-family: "Saira", sans-serif;
+    font-weight: 300;
+}
+
+.clientreview-card .testi-content .testi-designation {
+    margin-top: 21px;
+}
+
+.clientreview-card .testi-content .testi-designation h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2230;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.clientreview-card .testi-content .testi-designation p {
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #696969;
+    font-style: normal;
+}

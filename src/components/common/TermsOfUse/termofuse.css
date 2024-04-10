@@ -1,0 +1,50 @@
+.termofuse-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.termofuse-header h1 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.termofuse-header p {
+    font-size: 0.875rem;
+    font-weight: medium;
+    color: #4f4f4f;
+}
+
+.termofuse-article a {
+    color: #32c36c;
+    font-weight: medium;
+}
+
+.termofuse-checkbox {
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.termofuse-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.termofuse-button-back {
+    background-color: #E7E8FF;
+    color: primary-color;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+}
+
+.otp-modal, .otp-modal form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
