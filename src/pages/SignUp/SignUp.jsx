@@ -24,7 +24,7 @@ function SignUp() {
         }
     };
 
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState(2);
     const nextStep = () => setActive((current) => (
         current < 3 ? current + 1 : current
     ));

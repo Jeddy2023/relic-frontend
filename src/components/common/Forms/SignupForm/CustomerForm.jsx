@@ -8,7 +8,8 @@ import './signupform.css'
 function CustomerForm({ prevStep, nextStep }) {
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        password: '',
+        role: 'BUYER'
     });
 
     const [errorMessages, setErrorMessages] = useState({

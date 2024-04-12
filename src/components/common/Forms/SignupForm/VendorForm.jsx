@@ -13,7 +13,8 @@ function VendorForm({ prevStep, nextStep }) {
         username: '',
         fullname: '',
         shopname: '',
-        phonenumber: ''
+        phonenumber: '',
+        role: 'SELLER'
     });
 
     const [errorMessages, setErrorMessages] = useState({

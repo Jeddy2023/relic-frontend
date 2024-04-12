@@ -81,7 +81,7 @@ function TermsOfUse({ prevStep, nextStep }) {
                             value={pin}
                             onChange={(value) => setPin(value)}
                         />
-                        <Button type='submit' color='#32c36c' variant="light" mt={10}>Verify Email</Button>
+                        <Button type='submit' color='#32c36c' variant="light" mt={10} mb={22}>Verify Email</Button>
                     </form>
                 </div>
             </Modal>

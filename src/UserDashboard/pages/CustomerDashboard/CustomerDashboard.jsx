@@ -6,7 +6,7 @@ import './customerdashboard.css'
 function CustomerDashboard() {
     return (
         <>
-            <div className="container customer_dashboard-sidebar">
+            <div className="container customer_dashboard">
                 <div className="customer_dashboard-sidebar">
                     <Sidebar />
                 </div>

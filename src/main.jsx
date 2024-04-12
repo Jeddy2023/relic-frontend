@@ -19,6 +19,7 @@ import CustomerDashboardOrders from './UserDashboard/pages/CustomerDashboard/Cus
 import CustomerDashboardActiveAuction from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.ActiveAuction';
 import CustomerDashboardAuctionActivity from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.AuctionActivity';
 import CustomerDashboardAddresses from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.Addresses';
+import CustomerDashboardAccountDetails from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.AccountDetails';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
           { path: "addresses", element: <CustomerDashboardAddresses />},
           { path: "auction-activity", element: <CustomerDashboardAuctionActivity />},
           { path: "auction-orders", element: <CustomerDashboardOrders/>},
-          { path: "won-auction", element: <CustomerDashboardWonAuction />}
+          { path: "account-details", element: <CustomerDashboardAccountDetails/>}
         ]
       }
     ],
