@@ -1,0 +1,94 @@
+.auctions_container{
+    margin: 50px 10px;
+    color: #333333 !important;
+    font-family: "Saira", sans-serif !important;
+}
+.auctions_container-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.auctions_container-top h4{
+    color: #333333;
+    font-weight: 600;
+    font-size: 14px;
+} 
+.auctions_container-top input{
+    width: 330px;
+}  
+.auctions_container-bottom{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.auctions_container-bottom_auctions{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+}
+.auctions_container-bottom_auctions .bidcard{
+    border-radius: 0;
+}
+
+.auctions_container-bottom_auctions .bidcard .top .auction-timer {
+    width: 100%;
+    border-radius: 0;
+}
+
+.auctions_container-bottom_auctions .bidcard .bottom h2 {
+    font-size: 1.3rem;
+}
+
+.auctions_container-bottom_auctions .bidcard .bottom button {
+    font-size: 1rem;
+    padding: 6px 7px;
+}
+
+.auctions_container-bottom_sidebar{
+    width: 300px;
+}
+
+.card_search-section,  .card_category-section{
+    background-color: #ffffff;
+    box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.06);
+    padding: 40px 17px;
+}
+.card_search-section h2, .card_category-section h2{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: "Saira", sans-serif !important;
+    position: relative;
+}
+
+.card_search-section h2:before , .card_category-section h2:before{
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #32c36c;
+    border-radius: 5px;
+}
+
+.card_search-section h2::after, .card_category-section h2::after {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 55px;
+    width: 5px;
+    height: 3px;
+    background-color: #32c36c;
+    border-radius: 5px;
+}
+
+.card_search-section input {
+    font-family: "Saira", sans-serif !important;
+    border: 1.4px solid #eee;
+    outline: none;
+    padding: 17px 15px;
+    color: #1f2230;
+    font-size: 1rem;
+    font-weight: 400;
+}

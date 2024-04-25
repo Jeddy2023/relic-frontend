@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './sidebar.css';
+import { UserContext } from "../../../context/userContext";
+
 
 function Sidebar() {
-  const location = useLocation(); // Get the current location using useLocation hook
-  const [active, setActive] = useState(location.pathname); // Set initial active link based on current path
+  const location = useLocation();
+  const [active, setActive] = useState(location.pathname);
+  const { userData } = useContext(UserContext);
+  const userIsSeller = userData?.role === "SELLER";
 
-  // Function to handle click event on link
   const handleSetActive = (path) => {
-    setActive(path); // Update active state when a link is clicked
+    setActive(path);
   };
 
   return (
@@ -20,6 +23,22 @@ function Sidebar() {
               Dashboard
             </li>
           </Link>
+          {!userIsSeller ? (
+            <div></div>
+          ) : (
+            <>
+              <Link to="/dashboard/products">
+                <li className={active === '/dashboard/products' ? 'active' : ''} onClick={() => handleSetActive('/dashboard/products')}>
+                  Products
+                </li>
+              </Link>
+              <Link to="/dashboard/shop">
+                <li className={active === '/dashboard/shop' ? 'active' : ''} onClick={() => handleSetActive('/dashboard/shop')}>
+                  Shop
+                </li>
+              </Link>
+            </>
+          )}
           <Link to="/dashboard/auction-orders">
             <li className={active === '/dashboard/auction-orders' ? 'active' : ''} onClick={() => handleSetActive('/dashboard/auction-orders')}>
               Orders
@@ -50,8 +69,11 @@ function Sidebar() {
               Auction Activity
             </li>
           </Link>
-          {/* Logout link */}
-          <li>Log out</li>
+          <Link to="/logout">
+            <li className={active === '/logout' ? 'active' : ''} onClick={() => handleSetActive('/logout')}>
+              Logout
+            </li>
+          </Link>
         </ul>
       </menu>
     </div>

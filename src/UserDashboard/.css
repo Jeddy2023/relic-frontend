@@ -1,0 +1,61 @@
+<div className="customer_accountdatails-form-names">
+                <Input
+                    label="First Name"
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                    error={errorMessages.firstname}
+                    type="text"
+                    Icon={MdOutlinePerson}
+                />
+                <Input
+                    label="Last Name"
+                    name="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                    error={errorMessages.lastname}
+                    type="text"
+                    Icon={MdOutlinePerson}
+                />
+            </div>
+            <Input
+                label="Street Address"
+                name="street"
+                value={formData.street}
+                onChange={handleChange}
+                error={errorMessages.street}
+                type="text"
+                placeholder="Enter Street Address"
+                icon={<MdLockOutline />}
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+.customer_dashboard-main::-webkit-scrollbar {
+    width: 3px;
+    display: none;
+    cursor: pointer;
+}
+
+.customer_dashboard-main:hover::-webkit-scrollbar {
+    display: block;
+}
+
+.customer_dashboard-main::-webkit-scrollbar-thumb {
+    background-color: #88888839;
+    border-radius: 6px;
+}

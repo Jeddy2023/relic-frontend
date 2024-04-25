@@ -35,15 +35,15 @@ function BidCard() {
         <div className="bidcard">
             <div className="content">
                 <div className="top">
-                    <div className="auction-timer">
-                        <div className="main-auction">
-                            <span>{timeLeft.days} <p>Days</p></span>
-                            <span>{timeLeft.hours} <p>Hours</p></span>
-                            <span>{timeLeft.minutes} <p>Minutes</p></span>
-                            <span>{timeLeft.seconds} <p>Seconds</p></span>
-                        </div>
+                    <div className="main-auction_timer">
+                        <span>{timeLeft.days} <p>Days</p></span>
+                        <span>{timeLeft.hours} <p>Hours</p></span>
+                        <span>{timeLeft.minutes} <p>Minutes</p></span>
+                        <span>{timeLeft.seconds} <p>Seconds</p></span>
                     </div>
-                    <img src="https://bidout-wp.b-cdn.net/wp-content/uploads/2022/11/eric-prouzet-WTteoDYo4do-unsplash-1.jpg" alt="Auction Item" />
+                    <div className="main-auction_img">
+                        <img src="https://bidout-wp.b-cdn.net/wp-content/uploads/2022/11/eric-prouzet-WTteoDYo4do-unsplash-1.jpg" alt="Auction Item" />
+                    </div>
                 </div>
                 <div className="bottom">
                     <h2 className="name">Alarm Clock 1990’s</h2>

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 import './customerdashboard.css'
 
+
 function CustomerDashboard() {
+
     return (
         <>
             <div className="container customer_dashboard">

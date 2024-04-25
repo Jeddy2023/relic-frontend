@@ -4,6 +4,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { validateCustomerForm, validateVendorForm } from '../../Validations';
 import Input from '../../Input/Input';
 import './signupform.css'
+import { MdOutlineAlternateEmail, MdLockOutline } from "react-icons/md";
+import axios from 'axios';
+
 
 function CustomerForm({ prevStep, nextStep }) {
     const [formData, setFormData] = useState({
@@ -27,12 +30,15 @@ function CustomerForm({ prevStep, nextStep }) {
         }
 
         try {
-            toast.success('Request sent successfully');
-            nextStep();
-            setFormData({
-                email: '',
-                password: ''
-            });
+            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/customer`, formData)
+            if (response.status === 200) {
+                toast.success(response.data);
+                // nextStep();
+                setFormData({
+                    email: '',
+                    password: ''
+                });
+            }
         } catch (error) {
             console.error('Error submitting form:', error);
             toast.error('An error occurred. Please try again later.');
@@ -67,6 +73,8 @@ function CustomerForm({ prevStep, nextStep }) {
                         value={formData.email}
                         onChange={handleChange}
                         error={errorMessages.email}
+                        Icon={MdOutlineAlternateEmail}
+                        type='email'
                     />
                     <Input
                         label="Password"
@@ -76,7 +84,9 @@ function CustomerForm({ prevStep, nextStep }) {
                         onChange={handleChange}
                         error={errorMessages.password}
                         type="password"
+                        Icon={MdLockOutline}
                     />
+                    <button disabled >Yes</button>
                 </div>
 
                 <Group justify="center" mt="xl" mb="xl">

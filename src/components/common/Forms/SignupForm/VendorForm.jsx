@@ -4,6 +4,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { validateVendorForm } from '../../Validations';
 import Input from '../../Input/Input';
 import './signupform.css'
+import { MdOutlineAlternateEmail, MdLockOutline, MdOutlinePerson, MdOutlinePhone } from "react-icons/md";
+import { FcShop } from "react-icons/fc";
+import axios from 'axios';
 
 function VendorForm({ prevStep, nextStep }) {
 
@@ -11,9 +14,9 @@ function VendorForm({ prevStep, nextStep }) {
         email: '',
         password: '',
         username: '',
-        fullname: '',
+        firstname: '',
+        lastname: '',
         shopname: '',
-        phonenumber: '',
         role: 'SELLER'
     });
 
@@ -21,9 +24,9 @@ function VendorForm({ prevStep, nextStep }) {
         email: '',
         password: '',
         username: '',
-        fullname: '',
+        firstname: '',
+        lastname: '',
         shopname: '',
-        phonenumber: ''
     });
 
     const formRef = useRef(null);
@@ -35,20 +38,24 @@ function VendorForm({ prevStep, nextStep }) {
             return;
         }
 
+        console.log(formData)
+
         try {
-            toast.success('Request sent successfully');
+            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/vendor`, formData)
+            console.log(response)
+            toast.success(response.data);
             nextStep();
             setFormData({
                 email: '',
                 password: '',
                 username: '',
-                fullname: '',
+                firstname: '',
+                lastname: '',
                 shopname: '',
-                phonenumber: ''
             });
         } catch (error) {
             console.error('Error submitting form:', error);
-            toast.error('An error occurred. Please try again later.');
+            toast.error(error.response.data.message);
         }
     };
 
@@ -80,7 +87,8 @@ function VendorForm({ prevStep, nextStep }) {
                         value={formData.email}
                         onChange={handleChange}
                         error={errorMessages.email}
-                        type={"text"}
+                        type={"email"}
+                        Icon={MdOutlineAlternateEmail}
                     />
                     <Input
                         label="Password"
@@ -90,6 +98,7 @@ function VendorForm({ prevStep, nextStep }) {
                         onChange={handleChange}
                         error={errorMessages.password}
                         type="password"
+                        Icon={MdLockOutline}
                     />
                     <Input
                         label="Username"
@@ -99,24 +108,27 @@ function VendorForm({ prevStep, nextStep }) {
                         onChange={handleChange}
                         error={errorMessages.username}
                         type={"text"}
+                        Icon={MdOutlinePerson}
                     />
                     <Input
-                        label="Full Name"
-                        placeholder="Enter your fullname"
-                        name="fullname"
-                        value={formData.fullname}
+                        label="First Name"
+                        placeholder="Enter your firstname"
+                        name="firstname"
+                        value={formData.firstname}
                         onChange={handleChange}
-                        error={errorMessages.fullname}
+                        error={errorMessages.firstname}
                         type={"text"}
+                        Icon={MdOutlinePerson}
                     />
                     <Input
-                        label="Phone Number"
-                        placeholder="Enter your Phone Number"
-                        name="phonenumber"
-                        value={formData.phonenumber}
+                        label="Last Name"
+                        placeholder="Enter your lastname"
+                        name="lastname"
+                        value={formData.lastname}
                         onChange={handleChange}
-                        error={errorMessages.phonenumber}
+                        error={errorMessages.lastname}
                         type={"text"}
+                        Icon={MdOutlinePerson}
                     />
                     <Input
                         label="Shop Name"
@@ -126,6 +138,7 @@ function VendorForm({ prevStep, nextStep }) {
                         onChange={handleChange}
                         error={errorMessages.shopname}
                         type={"text"}
+                        Icon={FcShop}
                     />
                 </div>
 

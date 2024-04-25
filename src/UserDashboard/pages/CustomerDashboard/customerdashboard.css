@@ -36,45 +36,121 @@
 
 .customer_dashboard-main {
     width: 100%;
-    max-height: 520px;
-    overflow: auto;
-    position: relative;
 }
 
-.customer_dashboard-main::-webkit-scrollbar {
-    width: 3px;
-    display: none;
-    cursor: pointer;
-}
-
-.customer_dashboard-main:hover::-webkit-scrollbar {
-    display: block;
-}
-
-.customer_dashboard-main::-webkit-scrollbar-thumb {
-    background-color: #88888839;
-    border-radius: 6px;
-}
-
-
-.customer_orders .mantine-Table-thead {
+.customer_orders .mantine-Table-thead,
+.customer_auction-activity .mantine-Table-thead {
     background-color: #32c36c;
     color: white;
     font-size: 1rem;
 }
-.customer_orders .mantine-Table-tbody {
+
+.customer_orders .mantine-Table-tbody,
+.customer_auction-activity .mantine-Table-tbody {
     font-size: 1rem;
 }
+
 /* .customer_orders .mantine-Table-table {
     table-layout: fixed;
 } */
-.customer_orders .mantine-Table-tbody .mantine-Table-td {
+
+.customer_orders .mantine-Table-tbody .mantine-Table-td,
+.customer_auction-activity .mantine-Table-tbody .mantine-Table-td {
     word-wrap: break-word;
+    max-width: 300px;
 }
 
-.customer_orders .mantine-Table-tbody .mantine-Table-td:last-child,.customer_orders .mantine-Table-thead .mantine-Table-th:last-child{
+.customer_orders .mantine-Table-tbody .mantine-Table-td:last-child,
+.customer_orders .mantine-Table-thead .mantine-Table-th:last-child {
     width: 50px !important;
 }
-.customer_orders .mantine-Table-tbody .mantine-Table-td:nth-child(4),.customer_orders .mantine-Table-thead .mantine-Table-th:nth-child(4){
+
+.customer_orders .mantine-Table-tbody .mantine-Table-td:nth-child(4),
+.customer_orders .mantine-Table-thead .mantine-Table-th:nth-child(4) {
     width: 115px !important;
+}
+
+.customer_active-auctions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.customer_active-auctions .bidcard{
+    border-radius: 0;
+}
+
+.customer_active-auctions .bidcard .top .auction-timer {
+    width: 100%;
+    border-radius: 0;
+}
+
+.customer_active-auctions .bidcard .bottom h2 {
+    font-size: 1.3rem;
+}
+
+.customer_active-auctions .bidcard .bottom button {
+    font-size: 1rem;
+    padding: 6px 7px;
+}
+
+.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child,
+.customer_auction-activity .mantine-Table-thead .mantine-Table-th:last-child {
+    width: 80px !important;
+}
+
+.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child span {
+    font-size: 0.75rem;
+    color: #32c36c;
+}
+
+.customer_accountdatails-form {
+    padding: 10px 15px;
+    font-family: "Saira", sans-serif !important;
+}
+
+.customer_accountdatails-form-names {
+    display: flex;
+    gap: 15px;
+}
+
+.customer_accountdatails-form-names .input_div {
+    width: 100%;
+    font-family: "Saira", sans-serif !important;
+}
+
+.customer_accountdatails-form .input_div input , .mantine-Autocomplete-input{
+    border-radius: 2px;
+    border: 1px solid #eee;
+    height: 45px;
+    margin-bottom: 15px;
+}
+
+.customer_accountdatails-form .input_div input , .customer_accountdatails-form .input_div label{
+    font-family: "Saira", sans-serif !important;
+}
+
+.customer_accountdatails-form h2, .customer_accountdatails-form h4{
+    font-family: "Saira", sans-serif !important;
+    font-weight: 400;
+    color: #212529;
+}
+
+.customer_accountdatails-form .mantine-Button-root{
+    font-family: "Saira", sans-serif !important;
+    font-size: 1.14rem;
+    padding: 0 16px;
+}
+
+.customer_addresses{
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer_addresses p{
+    font-family: "Saira", sans-serif !important;
+}
+
+.customer_addresses .card_header-section .bill-header{
+    font-size: 1.2rem;
 }

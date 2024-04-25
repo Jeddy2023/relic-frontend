@@ -95,14 +95,18 @@
     margin-bottom: 20px;
 }
 
+.auction_section .auctions .bidcard{
+    width: 350px;
+}
+
 .review_section {
     display: flex;
+    gap: 20px;
     justify-content: space-between;
 }
 
 .client-review_section {
     background-image: url(../../assets/images/review-bg.png);
-    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,6 +132,7 @@
     display: flex;
     margin-top: 50px;
     gap: 30px;
+    position: relative;
 }
 
 .client-review_section .client-right-vector {

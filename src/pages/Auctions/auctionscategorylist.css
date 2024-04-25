@@ -1,0 +1,26 @@
+.auctioncategory-li {
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.auctioncategory-li:hover span{
+    color: #32c36c;
+}
+.auctioncategory-li span{
+    font-family: "Saira", sans-serif !important;
+    transition: 0.3s ease-in-out;
+}
+.auctioncategory-li::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #32c36c;
+    transition: all .5s ease-out 0s;
+    transform: translateY(-50%);
+}

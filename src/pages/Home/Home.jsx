@@ -70,7 +70,7 @@ function Home() {
           ))}
         </div>
 
-        <Link to='/'><Button mt={20} color='#32c36c' fw={900} size={"md"}>View All</Button></Link>
+        <Link to='/auctions'><Button mt={20} color='#32c36c' fw={900} size={"md"}>View All</Button></Link>
       </section>
       <section className="container client-review_section">
         <h1>What Client Say</h1>
@@ -90,6 +90,7 @@ function Home() {
         <img src={clientcircle} className='client-circle1' />
         <img src={clientcircle2} className='client-circle2' />
       </section>
+
       <section className='container review_section'>
         <ReviewCard />
         <ReviewCard />
