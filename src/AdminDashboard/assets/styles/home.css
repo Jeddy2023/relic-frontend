@@ -1,0 +1,51 @@
+.home {
+    width: 100%;
+}
+
+.home .page_bar h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.home .page_content .top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.home .page_content .chart_container {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.home .page_content .chart_container .chart_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.home .page_content .chart_container .chart_content .chart_card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home .page_content .chart_container .chart_content .chart_card:nth-child(1){
+    width: 66%;
+}
+
+.home .page_content .chart_container .chart_content .chart_card:nth-child(2){
+    width: 32%;
+}
+
+.home .page_content .chart_container .chart_content .chart_card .title {
+    font-size: 20px;
+    color: #555;
+    margin: 15px 0 20px 0;
+}

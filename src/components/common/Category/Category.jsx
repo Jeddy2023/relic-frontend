@@ -8,6 +8,7 @@ import { LiaRingSolid } from "react-icons/lia";
 import { FiMusic } from "react-icons/fi";
 import { MdOutlinePhonelink } from "react-icons/md";
 import './category.css'
+import { Flex } from '@mantine/core';
 
 
 const categories = [
@@ -15,28 +16,17 @@ const categories = [
     { icon: <TbCarSuv />, name: 'Vehicles' },
     { icon: <BsWatch />, name: 'Watches' },
     { icon: <LiaRingSolid />, name: 'Accessories' },
-    { icon: <FiMusic />, name: 'Music' },
     { icon: <PiDressBold />, name: 'Fashion' },
-    { icon: <MdOutlinePhonelink />, name: 'Electronics' },
 ];
 
 function Category() {
 
     return (
-        <Carousel
-            slideSize={{ base: '100%', sm: '50%', md: '16%' }}
-            slideGap={{ base: 0, sm: 16, md: 15 }}
-            align="start"
-            controlSize={40}
-            controlsOffset={10}
-            loop
-        >
+        <Flex justify={'space-between'} mb={20}>
             {categories.map((category, index) => (
-                <Carousel.Slide key={index}>
-                    <BidCategoryCard icon={category.icon} name={category.name} />
-                </Carousel.Slide>
+                    <BidCategoryCard icon={category.icon} name={category.name}/>
             ))}
-        </Carousel>
+        </Flex>
     )
 }
 

@@ -1,15 +1,19 @@
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { accessToken } = useContext(UserContext);
+  const { accessToken, userData } = useContext(UserContext);
+  const location = useLocation();
 
-  if (!accessToken) {
-    return <Navigate to={"/"} />
+  const isDashboardRoute = location.pathname.startsWith('/dashboard');
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  if (!accessToken && !isDashboardRoute && !isAdminRoute) {
+    return <Navigate to="/" />;
   }
 
-  return children
+  return children;
 };
 
 export default ProtectedRoute;

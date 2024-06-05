@@ -59,3 +59,152 @@
     background-color: #88888839;
     border-radius: 6px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const [formData, setFormData] = useState({
+    //   name: '',
+    //   shortDescription: '',
+    //   description: '',
+    //   categoryId: '',
+    //   condition: '',
+    //   minimumBid: '',
+    //   biddingTimeLimit: null,
+    //   productImage: null
+    // });
+  
+    // const formRef = useRef(null);
+  
+    // const handleSubmit = async (event) => {
+    //   event.preventDefault();
+  
+    //   try {
+    //     const headers = {
+    //       'Content-Type': 'multipart/form-data',
+    //       'Authorization': `Bearer ${accessToken}`
+    //     };
+  
+    //     const response = await axios.post('http://localhost:8080/api/v1/auction', formData, {
+    //       headers: headers
+    //     });
+  
+    //     console.log(response)
+    //     if (response.status === 200) {
+    //       toast.success('Product created successfully!');
+    //       setFormData({
+    //         name: '',
+    //         shortDescription: '',
+    //         description: '',
+    //         categoryId: '',
+    //         condition: '',
+    //         minimumBid: '',
+    //         biddingTimeLimit: '',
+    //         productImage: null
+    //       });
+    //     }
+    //   } catch (error) {
+    //     console.error('Error submitting form:', error);
+    //     toast.error('An error occurred. Please try again later.');
+    //   }
+    // };
+  
+    // const handleChange = (event) => {
+    //   const { name, value, files } = event.target;
+    //   setFormData((prevFormData) => ({
+    //     ...prevFormData,
+    //     [name]: files ? files[0] : value
+    //   }));
+    // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // <div className="signup-form_container">
+    //   <Toaster />
+    //   <header>
+    //     <h2>Add a Product</h2>
+    //     <p>Welcome to your Vendor Dashboard</p>
+    //   </header>
+    //   <form ref={formRef} onSubmit={handleSubmit} encType="multipart/form-data">
+    //     <div className="signupform-form vendor-form">
+    //       <input
+    //         type="text"
+    //         name="name"
+    //         value={formData.name}
+    //         onChange={handleChange}
+    //         placeholder="Product Name"
+    //       />
+    //       <input
+    //         type="text"
+    //         name="shortDescription"
+    //         value={formData.shortDescription}
+    //         onChange={handleChange}
+    //         placeholder="Short Description"
+    //       />
+    //       <textarea
+    //         name="description"
+    //         value={formData.description}
+    //         onChange={handleChange}
+    //         placeholder="Description"
+    //       />
+    //       <input
+    //         type="text"
+    //         name="categoryId"
+    //         value={formData.categoryId}
+    //         onChange={handleChange}
+    //         placeholder="Category ID"
+    //       />
+    //       <input
+    //         type="text"
+    //         name="condition"
+    //         value={formData.condition}
+    //         onChange={handleChange}
+    //         placeholder="Condition"
+    //       />
+    //       <input
+    //         type="number"
+    //         name="minimumBid"
+    //         value={formData.minimumBid}
+    //         onChange={handleChange}
+    //         placeholder="Minimum Bid"
+    //       />
+    //       <input
+    //         type="datetime-local"
+    //         name="biddingTimeLimit"
+    //         value={formData.biddingTimeLimit}
+    //         onChange={handleChange}
+    //         placeholder="Bidding Time Limit"
+    //       />
+    //       <input
+    //         type="file"
+    //         name="productImage"
+    //         onChange={handleChange}
+    //       />
+    //     </div>
+
+    //     <Group justify="center" mt="xl" mb="xl">
+    //       <Button type='submit'>Submit</Button>
+    //     </Group>
+    //   </form>
+    // </div>

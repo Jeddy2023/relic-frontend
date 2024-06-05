@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './home.css'
 import BidCard from '../../components/common/BidCard/BidCard'
-import { Flex, Button, ActionIcon } from '@mantine/core';
+import { Flex, Button, ActionIcon, Skeleton } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
@@ -15,22 +15,87 @@ import ClientReviewCard from '../../components/common/ClientReviewCard/ClientRev
 import clientcircle from '../../assets/images/clent-circle1.png'
 import clientcircle2 from '../../assets/images/clent-circle2.png'
 import rightLayout from '../../assets/images/client-right.png'
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
+import { UserContext } from '../../context/userContext';
 
 function Home() {
+  const { accessToken, userData } = useContext(UserContext);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [categoryId, setCategoryId] = useState(null);
+  const [condition, setCondition] = useState(null);
+  const [keyword, setKeyword] = useState('');
+  const [sliderValues, setSliderValues] = useState([0, 10000000]);
+  const [minimumBid, setMinimumBid] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [sortBy, setSortBy] = useState('Default Sorting');
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(6);
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalResults, setTotalResults] = useState(0);
+  const [fetchTrigger, setFetchTrigger] = useState(true);
+
+  const buildQueryString = () => {
+    const params = {
+      categoryId: categoryId,
+      condition: condition,
+      keyword: keyword,
+      minBid: sliderValues[0],
+      maxBid: sliderValues[1],
+      minimumBid: minimumBid,
+      rating: rating,
+      sortBy: sortBy,
+      page: page,
+      size: pageSize
+    };
+
+    const queryString = Object.entries(params)
+      .filter(([key, value]) => value !== null && value !== '')
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join('&');
+
+    return queryString ? `?${queryString}` : '';
+  };
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const url = `http://localhost:8080/api/v1/auction/all${buildQueryString()}`;
+        const response = await axios.get(url);
+        setProducts(response?.data?.content);
+        setTotalPages(response?.data?.totalPages);
+        setTotalResults(response?.data?.totalElements);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (fetchTrigger) {
+      getProducts();
+      setFetchTrigger(false);
+    } else {
+      setIsLoading(true);
+      getProducts();
+    }
+  }, [categoryId, condition, keyword, sliderValues, minimumBid, rating, sortBy, page]);
+
   return (
     <main>
       <section className="container hero_section">
         <div className="hero_section-left">
           <div className="hero_section-h1-wrap">
-            <h1 className=''>Purchase Dream</h1>
-            <h1>Product & Try</h1>
+            <h1 className=''>Purchase your Dream Product & Try it</h1>
           </div>
           <div className="hero_section-p-wrap">
             <p>
               Unleash the thrill of bidding! Discover treasures, seize opportunities, and elevate your collections, all at <span>Relic</span>.
             </p>
           </div>
-          <Link to="/register">
+          {!accessToken && <Link to="/register">
             <Button
               pt={10}
               pb={10}
@@ -41,7 +106,7 @@ function Home() {
             >
               Get Started
             </Button>
-          </Link>
+          </Link>}
         </div>
         <div className="hero_section-right">
           <div className="img-holder one">
@@ -65,12 +130,12 @@ function Home() {
         </div>
 
         <div className="auctions">
-          {[...Array(6)].map((_, index) => (
-            <BidCard key={index} />
+          {products.map(product => (
+            <BidCard key={product.id} product={product} />
           ))}
         </div>
 
-        <Link to='/auctions'><Button mt={20} color='#32c36c' fw={900} size={"md"}>View All</Button></Link>
+        <Link to='/auctions'><Button mt={20} color='#32c36c' fw={900} size={"md"} mb={20}>View All</Button></Link>
       </section>
       <section className="container client-review_section">
         <h1>What Client Say</h1>

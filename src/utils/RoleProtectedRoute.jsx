@@ -8,7 +8,8 @@ const RoleProtectedRoute = ({ role, children }) => {
     if (role == userData?.role.toString()) {
         return children
     }
-    return <Navigate to={"/"}/>
+
+    // return <Navigate to={"/"}/>
 }
 
 export default RoleProtectedRoute

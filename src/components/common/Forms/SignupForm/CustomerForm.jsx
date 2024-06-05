@@ -6,7 +6,7 @@ import Input from '../../Input/Input';
 import './signupform.css'
 import { MdOutlineAlternateEmail, MdLockOutline } from "react-icons/md";
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 
 function CustomerForm({ prevStep, nextStep }) {
     const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ function CustomerForm({ prevStep, nextStep }) {
         role: 'BUYER'
     });
 
+    const [loading, setLoading] = useState(false);
     const [errorMessages, setErrorMessages] = useState({
         email: '',
         password: ''
@@ -29,11 +30,17 @@ function CustomerForm({ prevStep, nextStep }) {
             return;
         }
 
+        setLoading(true);
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/customer`, formData)
+            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/customer`, formData);
+            const message = response.data.message; // Extract the message
+            const verificationToken = response.data.verificationToken;
+            Cookies.set('verificationToken', verificationToken);
+
             if (response.status === 200) {
-                toast.success(response.data);
-                // nextStep();
+                toast.success(message); // Display the message
+
+                nextStep();
                 setFormData({
                     email: '',
                     password: ''
@@ -41,7 +48,9 @@ function CustomerForm({ prevStep, nextStep }) {
             }
         } catch (error) {
             console.error('Error submitting form:', error);
-            toast.error('An error occurred. Please try again later.');
+            toast.error(error?.response?.data?.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -86,12 +95,11 @@ function CustomerForm({ prevStep, nextStep }) {
                         type="password"
                         Icon={MdLockOutline}
                     />
-                    <button disabled >Yes</button>
                 </div>
 
                 <Group justify="center" mt="xl" mb="xl">
                     <Button color='#32c36c' variant="light" onClick={prevStep}>Back</Button>
-                    <Button type='submit' color='#32c36c'>Next</Button>
+                    <Button type='submit' color='#32c36c' loading={loading}>Next</Button>
                 </Group>
             </form>
         </div>

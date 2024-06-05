@@ -18,7 +18,6 @@ import CustomerDashboardWonAuction from './UserDashboard/pages/CustomerDashboard
 import CustomerDashboardOrders from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.Orders';
 import CustomerDashboardActiveAuction from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.ActiveAuction';
 import CustomerDashboardAuctionActivity from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.AuctionActivity';
-import CustomerDashboardAddresses from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.Addresses';
 import CustomerDashboardAccountDetails from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.AccountDetails';
 import CustomerDashboardUpdateShippingAddress from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.UpdateShippingAddress';
 import VendorDashboardProducts from './UserDashboard/pages/VendorDashboard/VendorDashboard.Products';
@@ -28,6 +27,10 @@ import Logout from './UserDashboard/pages/CustomerDashboard/Logout';
 import ProtectedRoute from './utils/ProtectedRoute';
 import RoleProtectedRoute from './utils/RoleProtectedRoute';
 import Auctions from './pages/Auctions/Auctions';
+import AuctionDetails from './pages/AuctionDetails/AuctionDetails';
+import CustomerDashboardNotifications from './UserDashboard/pages/CustomerDashboard/CustomerDashboard.Notifications';
+import AdminUsers from './AdminDashboard/pages/AdminUsers/AdminUsers';
+import AdminNotifications from './AdminDashboard/pages/AdminNotifications/AdminNotifications';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
+      { path: "auctions/:id", element: <AuctionDetails /> },
       { path: "auctions", element: <Auctions /> },
       {
         path: '/dashboard',
@@ -46,13 +50,13 @@ const router = createBrowserRouter([
           { index: true, element: <CustomerDashboardHome /> },
           { path: "won-auction", element: <CustomerDashboardWonAuction /> },
           { path: "active-auction", element: <CustomerDashboardActiveAuction /> },
-          { path: "addresses", element: <CustomerDashboardAddresses /> },
+          { path: "addresses", element: <CustomerDashboardUpdateShippingAddress /> },
           { path: "auction-activity", element: <CustomerDashboardAuctionActivity /> },
           { path: "auction-orders", element: <CustomerDashboardOrders /> },
           { path: "account-details", element: <CustomerDashboardAccountDetails /> },
-          { path: "update-shipping-address", element: <CustomerDashboardUpdateShippingAddress /> },
           { path: "products", element: <VendorDashboardProducts /> },
-          { path: "shop", element: <VendorDashboardShop /> }
+          { path: "shop", element: <VendorDashboardShop /> },
+          { path: "notifications", element: <CustomerDashboardNotifications /> },
         ]
       }
     ],
@@ -62,13 +66,16 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <ProtectedRoute>
-    <RoleProtectedRoute role="ADMIN">
-      <LayoutAdmin />
-    </RoleProtectedRoute>
-  </ProtectedRoute>,
+      <RoleProtectedRoute role="ADMIN">
+        <LayoutAdmin />
+      </RoleProtectedRoute>
+    </ProtectedRoute>,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <AdminHome /> }
+      { index: true, element: <AdminHome /> },
+      { path: "users", element: <AdminUsers /> },
+      { path: "auctions", element: <AdminUsers /> },
+      { path: "notifications", element: <AdminNotifications /> }
     ]
   }
 ])

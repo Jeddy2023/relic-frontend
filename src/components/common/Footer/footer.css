@@ -1,10 +1,13 @@
 footer {
     background-image: url(../../../assets/images/footer-map.png);
     background-color: #0a0a0f;
-    color: #fff;
     padding: 50px 30px;
+}
+
+.footer_container{
     display: flex;
     flex-wrap: wrap;
+    color: #fff;
 }
 
 footer .col {

@@ -25,6 +25,7 @@ button{
     background-color: transparent;
 }
 .container{
-    max-width: 1400px;
+    max-width: 1300px;
     padding: 0 50px;
+    margin: 0 auto;
 }

@@ -1,10 +1,11 @@
 .signup-home-link{
     position: absolute;
     top: 10px;
-    left: 10;
+    left: 10px;
     display: flex;
     align-items: center;
     color: #32c36c;
+    z-index: 100;
 }
 
 .signup_container{
@@ -12,6 +13,7 @@
     height: 100vh;
     overflow: hidden; 
     padding: 0;
+    position: relative;
 }
 
 .signup_container-forms{
@@ -20,6 +22,27 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 30px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.signup_container-forms::-webkit-scrollbar {
+    width: 10px;
+}
+
+.signup_container-forms::-webkit-scrollbar-thumb {
+    background-color: #32c36c;
+    border-radius: 10px;
+}
+
+.signup_container-forms::-webkit-scrollbar-thumb:hover {
+    background-color: #28a54c;
+}
+
+.signup_container-forms::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
 
 .signup_container-forms .login-link{
@@ -58,4 +81,25 @@
     min-height: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+
+.completion-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.completion-message h2 {
+    font-size: 2rem;
+    color: #32c36c;
+}
+
+.completion-message p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.completion-message button {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

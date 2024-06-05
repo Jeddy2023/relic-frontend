@@ -1,0 +1,44 @@
+.loader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.venn-container {
+    position: relative;
+    width: 20em; 
+    height: 20em;
+}
+
+.spinner {
+    position: absolute;
+    height: 8em;
+    width: 8em;
+    border: 0.5px solid #32c36c;
+    border-radius: 50%;
+    animation: spinner 1s infinite linear;
+}
+
+
+.spinner-1 {
+    top: 50%;
+    left: 48%;
+    border-top-color: #32c36c46;
+}
+
+.spinner-2 {
+    top: 20%;
+    left: 30%;
+    border-bottom-color: #32c36c46;
+}
+
+.spinner-3 {
+    top: 50%;
+    left: 12%;
+    border-left-color: #32c36c46;
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}

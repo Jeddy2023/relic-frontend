@@ -1,5 +1,6 @@
 import React, { useState, createContext, useEffect, useContext } from "react";
 import Cookies from 'js-cookie';
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -17,11 +18,12 @@ const UserProvider = ({ children }) => {
     }, []);
 
     const login = (data) => {
-        const { accessToken, user } = data;
+        const { accessToken, user, expiresIn } = data;
         setUserData(user);
         setAccessToken(accessToken);
-        Cookies.set('accessToken', accessToken, { expires: 7 });
-        Cookies.set('userData', JSON.stringify(user), { expires: 7 });
+        const expirationDate = new Date(new Date().getTime() + expiresIn);
+        Cookies.set('accessToken', accessToken, { expires: expirationDate });
+        Cookies.set('userData', JSON.stringify(user), { expires: expirationDate });
     };
 
     const logout = () => {

@@ -1,0 +1,90 @@
+.sidebar {
+    background-color: white;
+    height: 100vh;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    /* width: 270px; */
+    padding: 10px 20px;
+    z-index: 3;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 3px;
+    color: #32c36c8f;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #32c36c70;
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #28a54c;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.sidebar * {
+    list-style: none;
+}
+
+.sidebar .logo {
+    display: flex;
+}
+
+.sidebar .logo a {
+    font-family: "Livvic", sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    color: #32c36c;
+    display: flex;
+    gap: 15px;
+}
+
+.sidebar .logo a svg {
+    margin-right: 10px;
+}
+
+.sidebar menu {
+    margin-top: 20px;
+}
+
+.sidebar menu h5 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: rgb(114, 114, 114);
+}
+
+.sidebar menu ul li {
+    font-size: 1.02rem;
+}
+
+.sidebar menu ul li svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.sidebar menu ul a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: rgb(58, 58, 58);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.sidebar menu ul a.active {
+    background-color: royalblue;
+    color: white;
+}

@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stepper, Button, Group } from '@mantine/core';
 import './signup.css'
 import toast, { Toaster } from 'react-hot-toast';
 import signupImg from '../../assets/images/hero-banner-1.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import CustomerForm from '../../components/common/Forms/SignupForm/CustomerForm';
 import VendorForm from '../../components/common/Forms/SignupForm/VendorForm';
 import TermsOfUse from '../../components/common/TermsOfUse/TermsOfUse';
+import Confetti from 'react-confetti';
 
 function SignUp() {
     const [userType, setUserType] = useState(null);
     const [transparentButton, setTransparentButton] = useState(null);
+    const [showConfetti, setShowConfetti] = useState(false);
+    const navigate = useNavigate();
     const handleUserTypeSelect = (type) => {
         setUserType(type);
     };
@@ -24,16 +27,28 @@ function SignUp() {
         }
     };
 
-    const [active, setActive] = useState(2);
+    const [active, setActive] = useState(0);
     const nextStep = () => setActive((current) => (
         current < 3 ? current + 1 : current
     ));
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
+    useEffect(() => {
+        if (active === 3) {
+            setShowConfetti(true);
+            const timer = setTimeout(() => {
+                setShowConfetti(false);
+            }, 8000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [active]);
+
     return (
         <>
+            {showConfetti && <Confetti />}
             <div className="signup_container container">
-                <Toaster/>
+                <Toaster />
                 <div className="signup_container-forms">
                     <Link
                         to={"/"}
@@ -69,7 +84,7 @@ function SignUp() {
                             </div>
                             <Group justify="center" mt="xl" mb="xl">
                                 <Button onClick={() => {
-                                    if(userType === null){
+                                    if (userType === null) {
                                         toast.error('Please select the type of user you want to be')
                                         return
                                     }
@@ -81,10 +96,14 @@ function SignUp() {
                             {userType === 'customer' ? <CustomerForm prevStep={prevStep} nextStep={nextStep} /> : <VendorForm prevStep={prevStep} nextStep={nextStep} />}
                         </Stepper.Step>
                         <Stepper.Step label="Final step" description="Terms of Use">
-                            <TermsOfUse prevStep={prevStep} nextStep={nextStep}/>
+                            <TermsOfUse prevStep={prevStep} nextStep={nextStep} />
                         </Stepper.Step>
                         <Stepper.Completed>
-                            Completed, click back button to get to previous step
+                            <div className="completion-message">
+                                <h2>Congratulations! You've successfully completed the sign-up process.</h2>
+                                <p>Please go back to the homepage to log in and start using your account.</p>
+                                <Button color='#32c36c' onClick={() => navigate('/')}>Go back to home</Button>
+                            </div>
                         </Stepper.Completed>
                     </Stepper>
 

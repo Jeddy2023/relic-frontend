@@ -4,6 +4,7 @@
     padding-left: 20px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 .auctioncategory-li:hover span{
     color: #32c36c;

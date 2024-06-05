@@ -1,4 +1,4 @@
-.nav {
+.header-navbar-con {
     padding: 0px 50px;
     height: 63px;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-.nav .logo {
+.header-navbar-con .logo {
     display: flex;
     align-items: center;
     width: 150px;
@@ -26,25 +26,25 @@
     object-fit: cover;
 }
 
-.nav .logo img {
+.header-navbar-con .logo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.nav .logo svg {
+.header-navbar-con .logo svg {
     font-size: 3rem;
     color: #32c36c59;
 }
 
-.nav a h3 {
-    font-weight: 500;
+.header-navbar-con a h3 {
+    font-weight: 520;
     transition: 0.3s ease-in-out;
     color: #1f2230;
     font-size: 1.14rem;
 }
 
-.nav a h3:hover {
+.header-navbar-con a h3:hover {
     color: #32c36c;
 }
 
@@ -52,16 +52,17 @@
     padding: 0 20px;
 }
 
-.mantine-Modal-content {
+.header-navbar-con .mantine-Modal-content {
     border-radius: 30px;
 }
 
-.mantine-Modal-header {
+.header-navbar-con .mantine-Modal-header {
     padding: 0 30px;
     color: #32c36c;
+    font-size: 1.4rem;
 }
 
-.mantine-Modal-header h2 {
+.header-navbar-con .mantine-Modal-header h2 {
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -92,4 +93,37 @@
 .signup-link {
     margin-bottom: 30px;
     text-align: center;
+}
+.header-navbar-con .notification_signifier{
+    position: relative;
+    cursor: pointer;
+}
+.header-navbar-con .notification_signifier span{
+    position: absolute;
+    top: -11px;
+    right: -7px;
+    background-color: #32c36c;
+    border-radius: 50%;
+    color: white;
+    padding: 0;
+    font-size: 0.7rem;
+    font-family: "Saira", sans-serif !important;
+    min-width: 20px; 
+    min-height: 20px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; 
+}
+
+.header-navbar-con .notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-list_maskall{
+    cursor: pointer;
 }

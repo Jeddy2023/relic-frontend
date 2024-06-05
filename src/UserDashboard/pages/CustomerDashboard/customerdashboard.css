@@ -45,6 +45,14 @@
     font-size: 1rem;
 }
 
+.vendor_products-createproduct-button {
+    transition: 0.3s ease-in-out;
+}
+
+.vendor_products-createproduct-button:hover {
+    background-color: #32c36c;
+}
+
 .customer_orders .mantine-Table-tbody,
 .customer_auction-activity .mantine-Table-tbody {
     font-size: 1rem;
@@ -70,13 +78,23 @@
     width: 115px !important;
 }
 
+.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child,
+.customer_auction-activity .mantine-Table-thead .mantine-Table-th:last-child {
+    width: 30px !important;
+}
+
+.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child span {
+    font-size: 0.75rem;
+    color: #32c36c;
+}
+
 .customer_active-auctions {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.customer_active-auctions .bidcard{
+.customer_active-auctions .bidcard {
     border-radius: 0;
 }
 
@@ -94,16 +112,6 @@
     padding: 6px 7px;
 }
 
-.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child,
-.customer_auction-activity .mantine-Table-thead .mantine-Table-th:last-child {
-    width: 80px !important;
-}
-
-.customer_auction-activity .mantine-Table-tbody .mantine-Table-td:last-child span {
-    font-size: 0.75rem;
-    color: #32c36c;
-}
-
 .customer_accountdatails-form {
     padding: 10px 15px;
     font-family: "Saira", sans-serif !important;
@@ -119,38 +127,88 @@
     font-family: "Saira", sans-serif !important;
 }
 
-.customer_accountdatails-form .input_div input , .mantine-Autocomplete-input{
+.customer_accountdatails-form .input_div input,
+.mantine-Autocomplete-input {
     border-radius: 2px;
     border: 1px solid #eee;
     height: 45px;
     margin-bottom: 15px;
 }
 
-.customer_accountdatails-form .input_div input , .customer_accountdatails-form .input_div label{
+.customer_accountdatails-form .input_div input,
+.customer_accountdatails-form .input_div label {
     font-family: "Saira", sans-serif !important;
 }
 
-.customer_accountdatails-form h2, .customer_accountdatails-form h4{
+.customer_accountdatails-form h2,
+.customer_accountdatails-form h4 {
     font-family: "Saira", sans-serif !important;
     font-weight: 400;
     color: #212529;
 }
 
-.customer_accountdatails-form .mantine-Button-root{
+.customer_accountdatails-form .mantine-Button-root {
     font-family: "Saira", sans-serif !important;
     font-size: 1.14rem;
     padding: 0 16px;
 }
 
-.customer_addresses{
+.customer_addresses {
     display: flex;
     justify-content: space-between;
 }
 
-.customer_addresses p{
+.customer_addresses p {
     font-family: "Saira", sans-serif !important;
 }
 
-.customer_addresses .card_header-section .bill-header{
+.customer_addresses .card_header-section .bill-header {
     font-size: 1.2rem;
+}
+
+.customer_notifications .no-notifications-card {
+    text-align: center;
+}
+
+.customer_notifications .no-notifications-card img {
+    margin: 0 auto;
+}
+
+.customer_notifications .customer_notifications-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.customer_notifications .customer_notifications-top .customer_notifications-top-functions p {
+    cursor: pointer;
+}
+
+.auctions-product-img {
+    width: 40px;
+    height: 85px;
+}
+
+.auctions-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.vendordashboard-products-noproductsfound {
+    display: block;
+    margin: auto;
+    height: 200px;
+}
+
+.customer_orders .mantine-table {
+    position: relative;
+}
+
+.customer_orders .mantine-table:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

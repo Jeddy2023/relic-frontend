@@ -1,0 +1,52 @@
+.notification-card-li {
+    position: relative;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    transition: 0.5s ease-in-out;
+}
+.notification-card-li .read-identifier{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+.notification-card-li .notification-message {
+    font-size: 14px;
+    color: #1f2230;
+    font-family: "Saira", sans-serif !important;
+}
+
+.notification-card-li .notification-date {
+    font-size: 12px;
+    color: #6c757d;
+    font-family: "Saira", sans-serif !important;
+    min-width: 30%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    margin-left: 13px;
+}
+
+.notification-card-li .notification-date svg {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.notification-card-li .notification-status {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: gray;
+    background-color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+}

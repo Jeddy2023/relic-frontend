@@ -1,0 +1,157 @@
+.product-details-container .product-details-container-top{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.product-details-container-top .product-image{
+    width: 45%;
+    height: 500px;
+    border-radius: 10px;
+    border: 10px whitesmoke solid;
+    overflow: hidden;
+}
+
+.product-details-container-top .product-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+}
+
+.product-details-container-top .product-info{
+    width: 55%;
+}
+.product-details-container-top .product-info > * {
+    font-family: "Saira", sans-serif !important;
+}
+.product-details-container-top .product-info > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+.product-info-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: #1f2230;
+}
+.product-info-shortdescription{
+    font-size: 16px;
+    font-weight: 500;
+    color: #747474;
+}
+.product-info-condition{
+    text-transform: uppercase;
+}
+.product-info-condition span, .product-info-auctiondate, .product-info-currentbid, .product-info-reserveprice{
+    color: #696969;
+}
+.product-info-timeleft, .product-info-condition{
+    color: #1f2230;
+}
+.product-info-condition, .product-info-timeleft, .product-info-auctiondate, .product-info-currentbid, .product-info-reserveprice{
+    font-weight: 500;
+}
+.product-info-currentbid span{
+    font-weight: 700;
+    color: #1f2230;
+    font-size: 20px;
+}
+.product-info-reserveprice{
+    display: inline-block;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+.product-info-timeleft{
+    margin-bottom: 10px;
+}
+.product-info-timeleft-con{
+    display: flex;
+    gap: 10px;
+}
+.product-info-timeleft-con-box{
+    text-align: center;
+    width: 25%;
+    background-color: #ffffff;
+    box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.06);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.product-info-timeleft-con-box span{
+    font-size: 20px;
+}
+
+.product-info-timeleft-con-box span p{
+    font-size: 10px;
+}
+
+.product-details-container-bottom .mantine-Tabs-list::before{
+    content: none;
+}
+
+.product-details-container-bottom .mantine-Tabs-tab{
+    margin-right: 20px;
+    background-color: #ffffff;
+    box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.06);
+    transition: 0.5s ease-in-out;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #515151;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.product-details-container-bottom .mantine-Tabs-tab h3{
+    font-family: "Saira", sans-serif !important;
+    font-weight: 600;
+}
+
+.product-details-container-bottom .mantine-Tabs-tab:hover{
+    background-color: #32c36ce1;
+    color: white;
+}
+
+.product-details-container-bottom .mantine-Tabs-tab:where([data-active]) {
+    background-color: #32c36ce1;
+    border: none;
+    color: white;
+}
+
+.product-details-container-bottom-tab-detail{
+    border-radius: 5px;
+    box-shadow: 5px 7px 35px rgba(139, 139, 139, 0.1);
+    padding: 30px;
+    background: #fff;
+    margin: 2em 0;
+}
+.product-details-container-bottom-tab-detail h2{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Saira", sans-serif !important;
+    color: #1f2230;
+    margin-bottom: 15px;
+}
+.product-details-container-bottom-tab-detail h4{
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: "Saira", sans-serif !important;
+    color: #515151;
+}
+
+.product-details-container-bottom-tab-detail p{
+    font-family: "Saira", sans-serif !important;
+    color: #515151;
+}
+
+.product-details-container-bottom-tab-detail .mantine-Table-thead{
+    background-color: #32c36c;
+    color: white;
+    font-size: 1rem;
+}
+
+.product-details-container-bottom-tab-detail-img{
+    display: block;
+    margin: 0 auto;
+}
+
+.product-details-container-bottom-tab-detail-reviewrate{
+    margin-top: 10px;
+}

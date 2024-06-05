@@ -1,7 +1,7 @@
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
-export const validateVendorForm = (formData, setErrorMessages) => {
+export const validateVendorForm = (formData, setErrorMessages, isAdmin) => {
     let isValid = true;
 
     if (!formData.email.trim()) {
@@ -60,6 +60,14 @@ export const validateVendorForm = (formData, setErrorMessages) => {
         setErrorMessages((prevErrors) => ({
             ...prevErrors,
             shopname: 'Shopname is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.phonenumber.trim() && isAdmin) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            phonenumber: 'Phone Number is required',
         }));
         isValid = false;
     }
@@ -166,6 +174,14 @@ export const validateUpdateUserDetailsForm = (formData, setErrorMessages) => {
         isValid = false;
     }
 
+    if (!formData.phonenumber.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            phonenumber: 'Phone number is required',
+        }));
+        isValid = false;
+    }
+
     // Validate first name if changed
     if (!formData.firstname.trim()) {
         setErrorMessages((prevErrors) => ({
@@ -188,3 +204,132 @@ export const validateUpdateUserDetailsForm = (formData, setErrorMessages) => {
     return isValid;
 }
 
+export const validateReviewForm = (formData, setErrorMessages) => {
+    let isValid = true;
+
+    if (!formData.rating || formData.rating < 1 || formData.rating > 5) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            rating: 'Rating must be between 1 and 5',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.comment.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            comment: 'Comment is required',
+        }));
+        isValid = false;
+    }
+
+    return isValid;
+};
+
+
+export const validateCreateProductForm = (formData, setErrorMessages, isUpdateAuction) => {
+    let isValid = true;
+    const newErrorMessages = {};
+
+    if (!formData.name.trim()) {
+        newErrorMessages.name = 'Product name is required';
+        isValid = false;
+    }
+
+    if (!formData.shortDescription.trim()) {
+        newErrorMessages.shortDescription = 'Short description is required';
+        isValid = false;
+    }
+
+    if (!formData.description.trim()) {
+        newErrorMessages.description = 'Description is required';
+        isValid = false;
+    }
+
+    if (!formData.categoryId) {
+        newErrorMessages.categoryId = 'Category is required';
+        isValid = false;
+    }
+
+    if (!formData.condition) {
+        newErrorMessages.condition = 'Condition is required';
+        isValid = false;
+    }
+
+    if (!formData.minimumBid.trim()) {
+        newErrorMessages.minimumBid = 'Minimum bid price is required';
+        isValid = false;
+    } else if (Number(formData.minimumBid) < 0) {
+        newErrorMessages.minimumBid = 'Minimum bid price cannot be negative';
+        isValid = false;
+    }
+
+    if (!formData.biddingTimeLimit) {
+        newErrorMessages.biddingTimeLimit = 'Bidding time limit is required';
+        isValid = false;
+    }
+
+    if (!formData.productImage && !isUpdateAuction) {
+        newErrorMessages.productImage = 'Product image is required';
+        isValid = false;
+    }
+
+    setErrorMessages(newErrorMessages);
+    return isValid;
+};
+
+
+
+export const validateUpdateShippingAddressForm = (formData, setErrorMessages) => {
+    let isValid = true;
+
+    if (!formData.firstname.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            firstname: 'First Name is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.lastname.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            lastname: 'Last Name is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.country.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            country: 'Country is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.state.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            state: 'State is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.city.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            city: 'City is required',
+        }));
+        isValid = false;
+    }
+
+    if (!formData.streetAddress.trim()) {
+        setErrorMessages((prevErrors) => ({
+            ...prevErrors,
+            streetAddress: 'Street Address is required',
+        }));
+        isValid = false;
+    }
+
+    return isValid;
+};

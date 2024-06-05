@@ -7,6 +7,7 @@ import './signupform.css'
 import { MdOutlineAlternateEmail, MdLockOutline, MdOutlinePerson, MdOutlinePhone } from "react-icons/md";
 import { FcShop } from "react-icons/fc";
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function VendorForm({ prevStep, nextStep }) {
 
@@ -20,6 +21,7 @@ function VendorForm({ prevStep, nextStep }) {
         role: 'SELLER'
     });
 
+    const [loading, setLoading] = useState(false);
     const [errorMessages, setErrorMessages] = useState({
         email: '',
         password: '',
@@ -33,17 +35,20 @@ function VendorForm({ prevStep, nextStep }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        if (!validateVendorForm(formData, setErrorMessages)) {
+        if (!validateVendorForm(formData, setErrorMessages, false)) {
             return;
         }
 
-        console.log(formData)
+        setLoading(true);
 
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/vendor`, formData)
-            console.log(response)
-            toast.success(response.data);
+            const response = await axios.post(`http://localhost:8080/api/v1/auth/register/vendor`, formData);
+            const message = response.data.message;
+            const verificationToken = response.data.verificationToken;
+            Cookies.set('verificationToken', verificationToken);
+
+            toast.success(message);
+
             nextStep();
             setFormData({
                 email: '',
@@ -55,7 +60,9 @@ function VendorForm({ prevStep, nextStep }) {
             });
         } catch (error) {
             console.error('Error submitting form:', error);
-            toast.error(error.response.data.message);
+            toast.error(error?.response?.data?.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -144,7 +151,7 @@ function VendorForm({ prevStep, nextStep }) {
 
                 <Group justify="center" mt="xl" mb="xl">
                     <Button color='#32c36c' variant="light" onClick={prevStep}>Back</Button>
-                    <Button type='submit' color='#32c36c'>Next</Button>
+                    <Button type='submit' color='#32c36c' loading={loading}>Next</Button>
                 </Group>
             </form>
         </div>

@@ -5,16 +5,14 @@ function bidpostexample() {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const handleFormSubmit = (event) => {
-        event.preventDefault(); // Prevent default form submission behavior if needed
+        event.preventDefault(); 
 
-        // Format selected date
-        const formattedDate = selectedDate?.toISOString();
+        const formattedDate = selectedDate?.toISOString().replace('T', ' ').split('.')[0];
+        console.log(formattedDate)
 
-        // Store formatted date in local storage
         localStorage.setItem('auctionEndDate', formattedDate);
     };
 
-    console.log(selectedDate)
     return (
         <div className="container">
             <form onSubmit={handleFormSubmit}>
